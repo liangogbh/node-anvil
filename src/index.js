@@ -72,6 +72,10 @@ const {
       generateMutation: generateForgeSubmitMutation,
     },
     // @ts-ignore
+    generateEmbedUrl: {
+      generateMutation: generateEmbedUrlMutation,
+    },    
+    // @ts-ignore
     generateEtchSignUrl: {
       generateMutation: generateEtchSignUrlMutation,
     },
@@ -344,6 +348,27 @@ class Anvil {
       { dataType: DATA_TYPE_JSON },
     )
   }
+
+  /**
+   * @param {Object} data
+   * @param {Object} data.variables
+   * @returns {Promise<{url?: string, errors?: Array<ResponseError>, statusCode: number}>}
+   */
+  async generateEmbedUrl ({ variables }) {
+    const { statusCode, data, errors } = await this.requestGraphQL(
+      {
+        query: generateEmbedUrlMutation(),
+        variables,
+      },
+      { dataType: DATA_TYPE_JSON },
+    )
+
+    return {
+      statusCode,
+      url: data && data.data && data.data.generateEmbedURL,
+      errors,
+    }
+  }  
 
   /**
    * @param {Object} data

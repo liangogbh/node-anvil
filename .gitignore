@@ -8,3 +8,4 @@ example/script/*.pdf
 example/script/*.json
 
 scratch/
+dist/
