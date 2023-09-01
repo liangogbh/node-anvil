@@ -100,6 +100,18 @@ declare class Anvil {
      * @param {Object} data.variables
      * @returns {Promise<{url?: string, errors?: Array<ResponseError>, statusCode: number}>}
      */
+    generateEmbedUrl({ variables }: {
+        variables: any;
+    }): Promise<{
+        url?: string;
+        errors?: Array<ResponseError>;
+        statusCode: number;
+    }>;
+    /**
+     * @param {Object} data
+     * @param {Object} data.variables
+     * @returns {Promise<{url?: string, errors?: Array<ResponseError>, statusCode: number}>}
+     */
     generateEtchSignUrl({ variables }: {
         variables: any;
     }): Promise<{
