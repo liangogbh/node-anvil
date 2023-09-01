@@ -352,7 +352,7 @@ class Anvil {
   /**
    * @param {Object} data
    * @param {Object} data.variables
-   * @returns {Promise<{url?: string, errors?: Array<ResponseError>, statusCode: number}>}
+   * @returns {Promise<{url?: { requestTokenEid: string; url: string; }, errors?: Array<ResponseError>, statusCode: number}>}
    */
   async generateEmbedUrl ({ variables }) {
     const { statusCode, data, errors } = await this.requestGraphQL(
