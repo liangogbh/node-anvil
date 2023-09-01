@@ -3,6 +3,7 @@ const defaultResponseQuery = `{
   eid
   name
   detailsURL
+  numberRemainingSigners
   documentGroup {
     id
     eid
