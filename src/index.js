@@ -64,6 +64,10 @@ const { Stream } = require('stream') // eslint-disable-line no-unused-vars
 const {
   mutations: {
     // @ts-ignore
+    createCast: {
+      generateMutation: generateCreateCastMutation,
+    },
+    // @ts-ignore
     createEtchPacket: {
       generateMutation: generateCreateEtchPacketMutation,
     },
@@ -214,6 +218,24 @@ class Anvil {
 
     return new UploadWithOptions(pathOrStreamLikeThing, formDataAppendOptions)
   }
+
+  /**
+   * Runs the createCast mutation.
+   * @param {Object} data
+   * @param {Object} data.variables
+   * @param {string} [data.responseQuery]
+   * @param {string} [data.mutation]
+   * @returns {Promise<GraphQLResponse>}
+   */
+  createCast ({ variables, responseQuery, mutation }) {
+    return this.requestGraphQL(
+      {
+        query: mutation || generateCreateCastMutation(responseQuery),
+        variables,
+      },
+      { dataType: DATA_TYPE_JSON },
+    )
+  }  
 
   /**
    * Runs the createEtchPacket mutation.
