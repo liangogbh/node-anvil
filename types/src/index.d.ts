@@ -42,6 +42,19 @@ declare class Anvil {
     limitIntervalMs: number;
     limiter: RateLimiter;
     /**
+     * Runs the createCast mutation.
+     * @param {Object} data
+     * @param {Object} data.variables
+     * @param {string} [data.responseQuery]
+     * @param {string} [data.mutation]
+     * @returns {Promise<GraphQLResponse>}
+     */
+    createCast({ variables, responseQuery, mutation }: {
+        variables: any;
+        responseQuery?: string;
+        mutation?: string;
+    }): Promise<GraphQLResponse>;
+    /**
      * Runs the createEtchPacket mutation.
      * @param {Object} data
      * @param {Object} data.variables
