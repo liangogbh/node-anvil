@@ -32,12 +32,6 @@ module.exports = {
         allowedAliasIds
         fieldInfo
         config
-        organization {
-          ...OrganizationFragment
-        }
-        parentCast {
-          ...CastFragment
-        }
         createdAt
         updatedAt
         archivedAt
