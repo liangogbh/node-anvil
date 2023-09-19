@@ -101,6 +101,14 @@ declare class Anvil {
     /**
      * @param {Object} data
      * @param {Object} data.variables
+     * @returns {Promise<GraphQLResponse>}
+     */
+    getCast({ variables }: {
+        variables: any;
+    }): Promise<GraphQLResponse>;
+    /**
+     * @param {Object} data
+     * @param {Object} data.variables
      * @param {string} [data.responseQuery]
      * @returns {Promise<GraphQLResponse>}
      */

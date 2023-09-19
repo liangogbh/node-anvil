@@ -90,6 +90,10 @@ const {
   },
   queries: {
     // @ts-ignore
+    cast: {
+      generateQuery: generateCastQuery,
+    },
+    // @ts-ignore
     etchPacket: {
       generateQuery: generateEtchPacketQuery,
     },
@@ -352,6 +356,21 @@ class Anvil {
         ...clientOptions,
         dataType,
       },
+    )
+  }
+
+  /**
+   * @param {Object} data
+   * @param {Object} data.variables
+   * @returns {Promise<GraphQLResponse>}
+   */
+  getCast ({ variables }) {
+    return this.requestGraphQL(
+      {
+        query: generateCastQuery(),
+        variables,
+      },
+      { dataType: DATA_TYPE_JSON },
     )
   }
 
