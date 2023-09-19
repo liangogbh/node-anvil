@@ -3,15 +3,25 @@ module.exports = {
     query ($eid: String!) {
       data: cast(eid: $eid) {
         id
+        createdAt
+        updatedAt
+        archivedAt
+        versionNumber
+        versionId
+        latestDraftVersionNumber
+        publishedNumber
+        publishedAt
+        hasUnpublishedChanges
+        hasBeenPublished
         eid
         type
         name
         title
+        isTemplate
+        exampleData
+        allowedAliasIds
+        fieldInfo
         config
-        location
-        createdAt
-        updatedAt
-        versionNumber
         organization {
           id
           eid
